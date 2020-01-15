@@ -1,9 +1,10 @@
 import React from 'react';
 
 import styles from './Films.module.css';
-import withSwapi from './withSwapi';
+import useSwapi from './useSwapi';
 
 function Films({ data, loading }) {
+  const { data, loading } = useSwapi('films')
   if (loading) {
     return <div>Loading films...</div>
   }
@@ -37,4 +38,4 @@ function Films({ data, loading }) {
   );
 }
 
-export default withSwapi(Films, 'films');
+export default Films
